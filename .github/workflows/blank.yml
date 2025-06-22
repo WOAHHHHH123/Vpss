@@ -1,0 +1,21 @@
+name: Free VPS (Temporary)
+
+on: [workflow_dispatch]
+
+jobs:
+  vps-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Root User
+        run: whoami
+
+      - name: Update & Install Tools
+        run: |
+          apt update
+          apt install -y neofetch htop
+
+      - name: System Info
+        run: neofetch
+
+      - name: Keep Alive (6 Hours)
+        run: sleep 21600
